@@ -6,6 +6,11 @@ def coke():
 
     while total_payment < a:    
         b=int(input("Insert Coin: "))
+
+        if b not in [5, 10, 25]:
+            # print("Invalid amount")
+            print(f"amount due: {a-total_payment}")
+            continue
         
         total_payment += b
         
