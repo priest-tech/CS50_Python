@@ -9,11 +9,11 @@ def main():
 # Extract the URL from the provided HTML
 def parse(s):
 
-    if re.search(r"\bhttps?://\S+", s):
-        return re.search(r"\bhttps?://\S+", s).group(0)
+    match = re.search(r"(?:https?:\/\/)?(?:www\.)?(?:youtu\.be\/|youtube\.com\/embed\/)([\w-]+)")
+    if match:
+        return match.group(1)
     else:
         return None
-    
 
        
 
