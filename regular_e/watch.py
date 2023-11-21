@@ -8,9 +8,9 @@ def main():
 
 # Extract the URL from the provided HTML
 def parse(s):
-    url= re.findall(r'<iframe[^>]*\ssrc=["\'](https?://(?:www\.)?youtube\.com/embed/[^"\']+)["\']', s)
-    if url:
-        return url
+    match= re.search(r'<iframe[^>]*\ssrc=["\'](https?://(?:www\.)?youtube\.com/embed/[^"\']+)["\']', s)
+    if match:
+        return match.group(1)
     else:
         return None
        
