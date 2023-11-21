@@ -8,7 +8,7 @@ def main():
 
 # Extract the URL from the provided HTML
 def parse(s):
-    url= re.findall(r'(https?://(?:www\.)?youtube\.com/embed/[^\s]+)', s)
+    url= re.findall(r'<iframe[^>]*\ssrc=["\'](https?://(?:www\.)?youtube\.com/embed/[^\s"\']+)["\']', s)
     if url:
         return url
     else:
