@@ -10,9 +10,9 @@ def main():
 def parse(s):
     match = re.search(r'<iframe[^>]*\ssrc=["\'](https?://(?:www\.)?youtube\.com/embed/([^"\']+))', s)
     if match:
-        protocol = match.group(1)[:5]  # Extract the protocol (http or https)
+        complete_url = match.group(1)  # Extract the complete URL
         video_id = match.group(2)  # Extract the video ID
-        return f'{protocol}{video_id}'  # Return the URL with the same protocol as provided
+        return f'{complete_url[:-11].replace("/embed/", "/")}/{video_id}'  # Construct the shorter youtu.be URL
     else:
         return None
 
