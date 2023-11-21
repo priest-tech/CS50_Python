@@ -10,7 +10,7 @@ def main():
 def parse(s):
     url= re.findall(r'(https?://(?:www\.)?youtube\.com/embed/[^\s]+)', s)
     if url:
-        return url[0]
+        return url
     else:
         return None
        
