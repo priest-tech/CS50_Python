@@ -2,21 +2,22 @@
 #they are in minutes rounded to the nearest integer using english words
 #without any and between words
 # assume the user was born at midnight and the current time will always be midnight regardless of the time the program is ran
-from datetime import date
+from datetime import  datetime
 from num2words import num2words
+import sys
 
 
 def main():
-   s= input("Enter your date of birth in yyy-mm-dd format: ")
+   s= sys.argv[1]
    print(f'{get_age_in_minutes(s)}')
 
 
 def get_age_in_minutes(s):
    # assuming the user was born at midnight and the current time will always be midnight
    try:
-        year, month, day = map(int, s.split('-'))
-        today = date(2000,1,1)
-        time = (today - date(year, month, day)).days * 24 * 60
+        dob = datetime.strptime(s, "%Y-%m-%d")
+        today = datetime.now().replace(hour=0, minute=0, second=0, microsecond=0)
+        time = (today - dob).days * 24 * 60
         return num2words(time).replace(" and", "")
    except ValueError:
       return "Invalid date format"
