@@ -8,7 +8,7 @@ from num2words import num2words
 
 def main():
    s= input("Enter your date of birth in yyy-mm-dd format: ")
-   print(f'your age in minutes is {get_age_in_minutes(s)}')
+   print(f'{get_age_in_minutes(s)}')
 
 
 def get_age_in_minutes(s):
@@ -21,7 +21,6 @@ def get_age_in_minutes(s):
    except ValueError:
       return "Invalid date format"
    
-
    
          
     
