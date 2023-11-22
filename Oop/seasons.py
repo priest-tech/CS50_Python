@@ -22,9 +22,15 @@ def get_age_in_minutes(s):
         # Calculate age in minutes
         age_time = (today - dob).total_seconds() / 60
 
-        # Handle leap years within the if statement
-        if leap_year(dob.year):
-            age_time += 24 * 60
+        # Count leap years between DOB and today
+        leap_years = 0
+        for year in range(dob.year, today.year):
+            if leap_year(year):
+                leap_years += 1
+
+        # Add leap day minutes if applicable
+        if leap_years > 0:
+            age_time += leap_years * 24 * 60
 
         return num2words(age_time).replace(" and", "")
     except ValueError:
@@ -32,8 +38,6 @@ def get_age_in_minutes(s):
 
 def leap_year(year):
     return year % 4 == 0 and (year % 100 != 0 or year % 400 == 0)
-   
-   
          
     
 
