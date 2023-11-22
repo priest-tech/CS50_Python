@@ -17,7 +17,7 @@ def get_age_in_minutes(s):
    try:
         dob = datetime.strptime(s, "%Y-%m-%d")
         today = datetime.now().replace(hour=0, minute=0, second=0, microsecond=0)
-        time = (today - dob).days * 24 * 60
+        time = (today - dob).total_seconds() / 60
         return num2words(time).replace(" and", "")
    except ValueError:
       return "Invalid date format"
