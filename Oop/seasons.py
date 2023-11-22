@@ -15,7 +15,7 @@ def main():
 def get_age_in_minutes(s):
    # assuming the user was born at midnight and the current time will always be midnight
    try:
-        dob = datetime.strptime(s, "%Y-%m-%d")
+        dob = datetime.strptime(s, "%Y-%m-%d").replace(hour=0, minute=0, second=0, microsecond=0)
         today = datetime.now().replace(hour=0, minute=0, second=0, microsecond=0)
         time = (today - dob).total_seconds() / 60
         return num2words(time).replace(" and", "")
