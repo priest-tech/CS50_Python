@@ -34,7 +34,8 @@ def get_age_in_minutes(s):
 
         return num2words(age_time).replace(" and", "")
     except ValueError:
-        return "Invalid date format"
+        print("Invalid date format. Please enter date in YYYY-MM-DD format.")
+        sys.exit(1)
 
 def leap_year(year):
     return year % 4 == 0 and (year % 100 != 0 or year % 400 == 0)
