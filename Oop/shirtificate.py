@@ -22,7 +22,7 @@ def shirtificate(name):
     pdf.cell(210, 10, text=name, align="C")
    
 
-    pdf.output("Shirtificate.pdf")    
+    pdf.output("shirtificate.pdf")    
 
 
 
